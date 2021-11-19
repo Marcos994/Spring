@@ -1,0 +1,10 @@
+.form-inline {
+    width: 100%;
+    text-align: center;
+
+  }
+
+  .form-inline {
+    float: none;
+    display: inline-block;
+  }

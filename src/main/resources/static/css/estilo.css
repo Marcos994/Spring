@@ -1,0 +1,60 @@
+.form-inline {
+    width: 100%;
+    text-align: center;
+
+  }
+  .form-inline {
+    float: none;
+    display: inline-block;
+  }
+  h1 {
+    text-align: center;
+    font-size: 2cm;
+    font-family: Verdana, Tahoma, sans-serif;
+    background-color: #ffcb00;
+    border-style: solid;
+    border-width: 10px;
+    border-color: #ffcb00;
+  }
+  h3 {
+    text-align: center;
+    font-size: 0.7cm;
+    border-style: solid;
+    border-width: 10px;
+    border-color: #ffcb00;
+    width: 15cm;
+  }
+  #contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20cm;
+    height: 4cm;
+  }
+  .centrado {
+    align-items: center;
+  }
+  .form-inline {
+    width: 100%;
+    text-align: center;
+    float: none;
+    display: inline-block;
+  }
+  #busqueda {
+    padding-right: 20%;
+  }
+  #nuevolibro{
+    text-align: right;
+  }
+  #nuevoautor{
+    text-align: right;
+  }
+  #nuevaeditorial{
+    text-align: right;
+  }
+  #alta{
+    padding-left:2%;
+  }
+  #ejemplares{
+    padding-right: 2%;
+  }
