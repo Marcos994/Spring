@@ -9,6 +9,7 @@ import com.libreria.entidades.Libro;
 import com.libreria.repositorio.AutorRepositorio;
 import com.libreria.repositorio.EditorialRepositorio;
 import com.libreria.repositorio.LibroRepositorio;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,6 @@ public class LibroServicio {
     @Transactional
     public void crearLibro(MultipartFile archivo, String titulo, Integer anio, Integer ejemplares, boolean alta, String idautor, String ideditorial) throws Excepcion {
 
-        for (int i = 0; i < 2; ++i) {
             
             Autor autor = autorRepositorio.findById(idautor).get();
             Editorial editorial = editorialRepositorio.findById(ideditorial).get();
@@ -46,6 +46,7 @@ public class LibroServicio {
             validarLibro(titulo, anio, ejemplares);
 
             Libro libro = new Libro();
+            
             libro.setTitulo(titulo);
             libro.setAnio(anio);
             libro.setEjemplares(ejemplares);
@@ -59,7 +60,6 @@ public class LibroServicio {
             libro.setFoto(foto);
 
             libroRepositorio.save(libro);
-        }
     }
 
     //---------------------MODIFICACIONES---------------------------
@@ -98,8 +98,15 @@ public class LibroServicio {
 
         Libro libro = buscarLibroId(idLibro);
         Cliente cliente = clienteServicio.buscarClienteId(idCliente);
+        
+        List <Libro> lista = new ArrayList();
+        
         libro.setCliente(cliente);
+        
+        lista.add(libro);
+        cliente.setLibro(lista);
 
+        
         if (libro != null) {
             if (libro.getEjemplaresRestantes() <= 0) {
                 throw new Excepcion("No quedan libros para prestar");

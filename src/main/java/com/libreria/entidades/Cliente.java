@@ -1,9 +1,11 @@
 package com.libreria.entidades;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -24,6 +26,9 @@ public class Cliente {
 
     @OneToOne
     private Foto foto;
+    
+    @OneToMany(mappedBy = "cliente")
+    private List <Libro> libro;
 
     public Cliente() {
     }
@@ -36,6 +41,14 @@ public class Cliente {
         this.nombre = nombre;
         this.apellido = apellido;
         this.foto = foto;
+    }
+
+    public List<Libro> getLibro() {
+        return libro;
+    }
+
+    public void setLibro(List<Libro> libro) {
+        this.libro = libro;
     }
 
     public String getId() {
